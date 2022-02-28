@@ -1,5 +1,5 @@
 import json
-from pprint import pprint
+from copy import deepcopy
 
 
 class CheckServer:
@@ -51,7 +51,15 @@ class CheckServer:
     def action_check_server(self, ack, body, client):
         # attachmentのボタンクリックで発火
         ack()
-        client.views_open(trigger_id=body["trigger_id"], view=self.check_view)
+
+        # ボタンがクリックされたchannel IDの取得
+        channel = body["channel"]["id"]
+
+        # check_viewにchannel IDを埋め込む
+        # インスタンス変数をいじるのはアレなので、deepcopyしてから
+        check_view = deepcopy(self.check_view)
+        check_view["private_metadata"] = channel
+        client.views_open(trigger_id=body["trigger_id"], view=check_view)
 
     def handle_check_server_submission(self, ack, client, body, view):
         # modalのsubmitで発火
@@ -62,10 +70,10 @@ class CheckServer:
         command = view["state"]["values"]["command"]["command"]["selected_option"][
             "value"
         ].replace("_", " ")
-        pprint(view)
 
         ack()
 
+        # 選択結果をchannelに投稿
         msg = f"実行対象サーバ: {','.join(servers)}\n実行コマンド: {command}"
-        user = body["user"]["id"]
-        client.chat_postMessage(channel=user, text=msg)
+        channel = view["private_metadata"]
+        client.chat_postMessage(channel=channel, text=msg)
