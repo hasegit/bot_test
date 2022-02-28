@@ -21,7 +21,7 @@ python -m bot_test
 4. slackでBotに対して `@<bot> action` とメンションを飛ばします
 5. attachmentが表示されるのでボタンをクリックします
 6. modalが起動するので、適当に選択します
-7. 選択結果がDMで連携されます
+7. 選択結果が実行Channelに表示されます
 
 ## 参考
 ### blockなどの作成
