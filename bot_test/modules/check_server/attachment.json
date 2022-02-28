@@ -1,0 +1,41 @@
+{
+    "attachments": [
+        {
+            "fallback": "actions",
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "*Choose your action*"
+                    }
+                },
+                {
+                    "type": "actions",
+                    "elements": [
+                        {
+                            "type": "button",
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Check Server",
+                                "emoji": true
+                            },
+                            "value": "check_server",
+                            "action_id": "check_server"
+                        },
+                        {
+                            "type": "button",
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Check LB",
+                                "emoji": true
+                            },
+                            "value": "check_lb",
+                            "action_id": "check_lb"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

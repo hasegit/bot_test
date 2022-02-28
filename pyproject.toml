@@ -1,0 +1,47 @@
+[tool.black]
+line-length = 99
+
+[tool.isort]
+line_length = 99
+profile = "black"
+skip_gitignore = "True"
+
+[tool.mypy]
+files = [
+    "bot_test",
+]
+ignore_missing_imports = "True"
+
+[tool.pylint]
+    [tool.pylint.messages_control]
+    disable = [
+        "C0114", # missing-module-docstring
+        "C0115",
+        "C0116", # missing-function-docstring
+        "C0103", # invalid-name (disabled due to const variable is warned everytime)
+        "E0401", # import-error
+        "R0401", # cyclic-import (disabled due to wrong warning)
+        "R0903", # too-few-public-methods
+    ]
+    [tool.pylint.format]
+    max-line-length = "99"
+
+[tool.poetry]
+name = "bot_test"
+version = "0.1.0"
+description = ""
+authors = ["hasegit <hasegit@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+slack-bolt = "^1.11.5"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.12.2"
+mypy = "^0.931"
+black = "^22.1.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

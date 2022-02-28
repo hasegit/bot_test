@@ -1,0 +1,109 @@
+{
+    "type": "modal",
+    "callback_id": "check_server",
+    "title": {
+        "type": "plain_text",
+        "text": "Check Server",
+        "emoji": true
+    },
+    "submit": {
+        "type": "plain_text",
+        "text": "Submit",
+        "emoji": true
+    },
+    "close": {
+        "type": "plain_text",
+        "text": "Cancel",
+        "emoji": true
+    },
+    "blocks": [
+        {
+            "type": "input",
+            "block_id": "server",
+            "element": {
+                "type": "multi_static_select",
+                "placeholder": {
+                    "type": "plain_text",
+                    "text": "Select servers",
+                    "emoji": true
+                },
+                "options": [
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "server01",
+                            "emoji": true
+                        },
+                        "value": "server01"
+                    },
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "server02",
+                            "emoji": true
+                        },
+                        "value": "server02"
+                    },
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "server03",
+                            "emoji": true
+                        },
+                        "value": "server03"
+                    }
+                ],
+                "action_id": "target_server"
+            },
+            "label": {
+                "type": "plain_text",
+                "text": "Target Servers",
+                "emoji": true
+            }
+        },
+        {
+            "type": "input",
+            "block_id": "command",
+            "element": {
+                "type": "static_select",
+                "placeholder": {
+                    "type": "plain_text",
+                    "text": "Choose a command",
+                    "emoji": true
+                },
+                "options": [
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "who",
+                            "emoji": true
+                        },
+                        "value": "who"
+                    },
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "df -h",
+                            "emoji": true
+                        },
+                        "value": "df_-h"
+                    },
+                    {
+                        "text": {
+                            "type": "plain_text",
+                            "text": "ps -ef",
+                            "emoji": true
+                        },
+                        "value": "ps_-ef"
+                    }
+                ],
+                "action_id": "command"
+            },
+            "label": {
+                "type": "plain_text",
+                "text": "Command",
+                "emoji": true
+            }
+        }
+    ]
+}
